@@ -9,8 +9,84 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="lasa.urbanheatisland.DataCollection">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_marginTop="65dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shadeType"
+        android:spinnerMode="dropdown"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/groundType" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groundType"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shade"
+        android:id="@+id/shade"
+        android:layout_marginTop="60dp"
+        android:checked="false"
+        android:layout_below="@+id/shadeType"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Temperature"
+        android:id="@+id/temp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ground Conditions"
+        android:id="@+id/grnd"
+        android:layout_alignBottom="@+id/groundType"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shade source"
+        android:id="@+id/textView"
+        android:layout_above="@+id/shadeType"
+        android:layout_alignStart="@+id/button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Was there shade?"
+        android:id="@+id/shadeyn"
+        android:layout_marginBottom="25dp"
+        android:layout_alignBottom="@+id/shade"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
