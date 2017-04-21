@@ -12,9 +12,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/Temperature"
         android:layout_marginTop="65dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/groundType"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/Temperature"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:spinnerMode="dropdown" />
@@ -41,8 +41,10 @@
         android:layout_height="wrap_content"
         android:text="submit"
         android:id="@+id/button"
+        android:onClick="submitClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
