@@ -5,14 +5,18 @@
     <string name="text"></string>
 
     <string-array name="Ground_Conditions">
-        <item> Concrete </item>
-        <item>  </item>
+        <item>Concrete</item>
+        <item>Ground</item>
+        <item>Grass</item>
+        <item>Dirt</item>
+        <item>Asphalt</item>
     </string-array>
 
 
     <string-array name="Shade_Source">
-        <item>Concert_One</item>
-        <item>Concert_Two</item>
+        <item>Tree</item>
+        <item>Building</item>
+
     </string-array>
 
     <string name="cost">Cost for %1$s is %2$d</string>

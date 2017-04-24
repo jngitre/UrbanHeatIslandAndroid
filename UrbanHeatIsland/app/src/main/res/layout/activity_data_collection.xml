@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/shadeType"
+        android:entries="@array/Shade_Source"
         android:spinnerMode="dropdown"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/groundType" />
@@ -34,7 +35,9 @@
         android:layout_below="@+id/Temperature"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:entries="@array/Ground_Conditions"
+        android:layout_alignParentStart="false" />
 
     <Button
         android:layout_width="wrap_content"
