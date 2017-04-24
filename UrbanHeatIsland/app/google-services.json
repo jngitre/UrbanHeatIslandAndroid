@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "688343184437",
+    "firebase_url": "https://urban-heatisland-project.firebaseio.com",
+    "project_id": "urban-heatisland-project",
+    "storage_bucket": "urban-heatisland-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688343184437:android:ab5382c9d2dd0f02",
+        "android_client_info": {
+          "package_name": "lasa.urbanheatisland"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688343184437-vbvb18qa7aphl94sosahh65qtc0uhhqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPHLPYYp9lflvd4-o0Ys6iW1xcs-ioVNM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
