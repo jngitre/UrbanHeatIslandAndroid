@@ -27,6 +27,7 @@ dependencies {
     compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.51'
     compile 'com.google.firebase:firebase-server-sdk:3.0.3'
     compile 'org.apache.httpcomponents:httpclient:4.5.3'
+    compile 'freemarker:freemarker:2.3.9'
 }
 
 appengine {
@@ -35,3 +36,4 @@ appengine {
     oauth2 = true
   }
 }
+

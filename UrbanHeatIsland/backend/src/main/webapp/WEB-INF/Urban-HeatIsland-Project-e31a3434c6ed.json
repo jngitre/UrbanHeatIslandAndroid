@@ -1,0 +1,16 @@
+{
+  "rules":{
+    ".read": true,
+    ".write": true
+  },
+  "type": "service_account",
+  "project_id": "urban-heatisland-project",
+  "private_key_id": "e31a3434c6edfe786bf0142e0b4deda415809f21",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCzK0j0Sah2zWXd\nmJ5oKLsK5z+rAsDJaqejcI/vIGcAstyZM/9g5ZqAyoQWtEFCWBZZ+9n5kP5i59sB\nI4CRQHVKKEYGdgJrcsP4lzzj+m3RBNbGDIbGVXIuFc8UvvxEOKQhOeGWSsHiR7Zt\ng9F1SOPuTFoSizqt9ebGBYYiD1SThUqsKlVCQzWammv3P4MO7tj15KMaJNzja4rE\ns6BPaHAxLgj60rnr7aElalZVaRMg40LrAg3tmJu6eGJaRThw/+655tGLvTpv5bcK\ndUYCpOXLVgRPzUFPDTEmECOBUNnmx1Fhj7ex4+XvGxGXS4VRsucmJ4zFNAQ0A7Jj\nJWnI1IIRAgMBAAECggEACITKVzMZW2ywpzSWc4VcP0x3bn4XBHyZs9+qOEhmHVZj\nvrUGM2k3S2BVn266m5jslyKuXntSXQmBFDDH8CAMc5YunigGPW2be7pVHtHNXt7I\nB2qZDd0KLL7EtcvO2r+Grj2+SBMN3OBkABkAYH8ytyXSMoeEJrlGW6vvkLcB4nGj\nj+t24eXaS7ezoTTHS11IzNuG6DkzADo6DG2vzUoEGZBbZJJKgWtl7XdojIjUCkEv\no94qStb6paRBnSmsada2qvac4wAiohuBtqr66yi4/yZK4JTKu9wbQti2Ks1eHpwB\nt0BG6FYQZOAsBDWpq+GkKt41pht1xlMOACm9XgjDMQKBgQDjqC/IDHjzX2F/Lr/n\n2YXUVtI0O2wY5iDREqsE4wRLakQB29E8KktzjssuAxGUxr3IjBO1DTjdzhfM+0l1\nBgvuLrRG4gh6mPDp4CKKZqZKLZqzdbt/WJXJ6FBgy2HoytKq9SpgBVQHW0EJuXX6\nhzVB0jzJlCG7Ci+Xx1ES261m1wKBgQDJebT7MCSddeHkfjICYraPdFLc+vmRl6U9\nQapFvG07KHqLezYltVFjvZ5VrUIV7JzxPzwN3fgaN2TqsoNbSITigD9e0rNM9vxf\n4ffmz/Jvlzey4AMGl5ax7OjBb6VA96HPO+yPKVw3EK7oSXxUcNUOcki1CONNSfc9\ngeOoxd8JVwKBgFMQQp7TLi5eVsx42jxV+aaIJxo3tDFBhifCj/OwgRijJT0oXyd8\npxr6tteK9xc5jHVn5qjgsib702NPLHYuRpwZHl3eiwlwVDaBORkWawYVraRdCJRm\nVgDdarZmfsrZdhQ6b8OpLgehHBHYQVuviZcChntmOQhtpv/SEZq33ITxAoGAZRMH\ntlRKqivvbV/Z2tSG3aTvxSird1zqara8o0uKSPlfsQXY/kXeVPlVq4nF85XGjki4\n6gQHaa+MkymHOI5DDBZmtD1j8iKeLcQBR+vephjounYjTnVSBmThx9kowFT6+ioH\n3TJUrtNRy/rBwuLwH9U5oIia77VBsbut6IeMAvUCgYA8+7xl8zpwffIZsEdYRPpJ\n4UyfvG3XbJq2OtqFhBnTy5N/Sm2sxTOfcHOkayXZWjbJi7Mq8gS9QMllyevHW4zv\nWII9kdjfmKcrphmtBvN3ok67olmZQiPguf3nCg7WuD6Lg6a8zI21VGx41bFnyopD\n6gjFqJBOH/DW2BDLXc3dkQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "uhiproj@urban-heatisland-project.iam.gserviceaccount.com",
+  "client_id": "101902394424219460039",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/uhiproj%40urban-heatisland-project.iam.gserviceaccount.com"
+}

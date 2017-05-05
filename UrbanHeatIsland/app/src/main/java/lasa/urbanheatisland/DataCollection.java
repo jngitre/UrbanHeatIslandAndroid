@@ -10,16 +10,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataCollection extends AppCompatActivity {
+
+    private int l = 0;
 
     DatabaseReference databaseTemperaturePoint = FirebaseDatabase.getInstance().getReference("datapoint");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_collection);
+        FirebaseApp.getInstance();
     }
 
     // Data retrieval into the database
@@ -40,17 +47,19 @@ public class DataCollection extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Please Enter A Valid Temperature Value",Toast.LENGTH_LONG).show();
 
         }else{
-            
-
-            
+            String id = databaseTemperaturePoint.push().getKey();
+            List d = new ArrayList();
+            d.add("entry" + l);
+            l++;
+            d.add(shadeType);
+            d.add(Boolean.toString(isshade));
+            d.add(groundType);
+            d.add(Double.toString(temperatureInput));
+            databaseTemperaturePoint.child(id).setValue(d);
         }
 
-        String id = databaseTemperaturePoint.push().getKey();
-        DataPoint d = new DataPoint(id , shadeType , isshade,  groundType, temperatureInput);
-        databaseTemperaturePoint.child(id).setValue(d);
 
-
-        Log.i("Send this:" , id + " " + shadeType + " "  + isshade + " " + groundType + " " + temperatureInput);
+        Log.i("Send this" , shadeType + " "  + isshade + " " + groundType + " " + temperatureInput);
         
 
     }
