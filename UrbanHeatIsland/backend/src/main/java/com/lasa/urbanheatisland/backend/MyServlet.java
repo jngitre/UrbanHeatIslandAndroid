@@ -79,9 +79,6 @@ public class MyServlet extends HttpServlet {
                 while(children.hasNext()) {
                     id.add(children.next().getValue().toString());
                 }
-                Map<String, Object> input = new HashMap<String, Object>();
-                Log.info(Arrays.toString(id.toArray()));
-                //resp.getWriter().println(Arrays.toString(id.toArray()));
             }
 
             @Override
@@ -89,86 +86,49 @@ public class MyServlet extends HttpServlet {
         });
 
         resp.setContentType("text/html");
-        if(id == null){
-            resp.getWriter().println("Refresh the page to see the data!");
-        }else {
-            resp.getWriter().println(makeNice());
+        while(id == null || id.isEmpty()) {
         }
+        int idPrevSize = 0;
+        while(id.size() != idPrevSize){
+            Log.info(String.valueOf(idPrevSize) + " " + String.valueOf(id.size()));
+            idPrevSize = id.size();
+            fillData();
+        }
+        resp.getWriter().println(makeNice());
     }
 
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
-        FirebaseOptions options = new FirebaseOptions.Builder().setServiceAccount(getServletContext()
-                .getResourceAsStream("/WEB-INF/Urban-HeatIsland-Project-e31a3434c6ed.json"))
-                .setDatabaseUrl("https://urban-heatisland-project.firebaseio.com/").build();
-        try{
-            FirebaseApp.getInstance();
-        }catch(Exception error){
-            Log.info(":(");
-        }
+    String website;
 
-        try{
-            FirebaseApp.initializeApp(options);
-        }catch(Exception error){
-            Log.info(":((");
-        }
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("datapoint");
-
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Object snap = dataSnapshot.getValue();
-
-                Iterator<DataSnapshot> children = dataSnapshot.getChildren().iterator();
-                id = new ArrayList<String>();
-                while(children.hasNext()) {
-                    id.add(children.next().getValue().toString());
-                }
-                Map<String, Object> input = new HashMap<String, Object>();
-                Log.info(Arrays.toString(id.toArray()));
-                //resp.getWriter().println(Arrays.toString(id.toArray()));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
-
-        resp.setContentType("text/html");
-        if(id == null){
-            resp.getWriter().println("Refresh the page to see the data!");
-        }else {
-            resp.getWriter().println(makeNice());
-        }
-    }
-
-    public String makeNice(){
-        String website = "<div class=\"row\">" +
-                "<div class=\"col-md-2\"></div>" +
-                "<div class=\"col-md-8\">" +
-                "<table class=\"table table-hover\"><tr>" +
-                "<th>Data Entry Number</th>" +
-                "<th>Shade Source</th>" +
-                "<th>Shaded Region?</th>" +
-                "<th>Ground Conditions</th>" +
-                "<th>Temperature</th></tr>";
+    public void fillData(){
+        website = "";
         for (int i= 0; i<id.size();i++){
             website = website + "<tr>";
             String temp = id.get(i);
-            for(int j=0; j<5; j++) {
-                if(temp.indexOf(',') != -1) {
-                        Log.info(String.valueOf(temp.indexOf(',')));
-                        website = website + "<td>" + temp.substring(1, temp.indexOf(',')) + "</td>";
-                        Log.info(website);
-                        temp = temp.substring(temp.indexOf(',') + 1);
-                }
-                else{
+            for(int j=0; j<6; j++) {
+                if(j==5 || temp.indexOf(',')==-1){
                     website = website + "<td>" + temp.substring(0, temp.length()-1) + "</td>";
+                }else{
+                    website = website + "<td>" + temp.substring(1, temp.indexOf(',')) + "</td>";
+                    temp = temp.substring(temp.indexOf(',') + 1);
                 }
             }
             website = website + "</tr>";
         }
-        website = website + "</table></div><div class=\"col-md-2\"></div>";
+    }
+
+    public String makeNice(){
+        website = "<div class=\"row\">" +
+                "<div class=\"col-md-1\"></div>" +
+                "<div class=\"col-md-10\">" +
+                "<table class=\"table table-hover\"><tr>" +
+                "<th>Data Entry Number</th>" +
+                "<th>Temperature (&deg;F)</th>" +
+                "<th>Ground Conditions</th>" +
+                "<th>Shaded Region?</th>" +
+                "<th>Shade Source</th>"+
+                "<th>Date and Time of Collection</th></tr>" + website;
+
+        website = website + "</table></div><div class=\"col-md-1\"></div>";
         website = "<html><head>" +
                 "    <title>Urban Heat Island Data</title>" +
                 "    <link rel=\"stylesheet\" href=\"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css\">" +
@@ -178,12 +138,12 @@ public class MyServlet extends HttpServlet {
                 "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
                 "    <div class=\"container\">" +
                 "        <div class=\"navbar-header\">" +
-                "            <a class=\"navbar-brand\" href=\"#\">Hello, App Engine!</a>" +
+                "            <a class=\"navbar-brand\" href=\"..\\\">Urban Heat Island</a>" +
                 "        </div>" +
                 "        <div class=\"navbar-collapse collapse\">" +
                 "            <ul class=\"nav navbar-nav\">" +
-                "                <li><a href=\"/data\">Google App Engine documentation</a></li>" +
-                "                <li><a href=\"https://console.developers.google.com\">Google Developers Console</a></li>" +
+                "                <li><a href=\"/data\">Data Table</a></li>" +
+                "                <li><a href=\"https://www.epa.gov/heat-islands/measuring-heat-islands\">More Information</a></li>" +
                 "            </ul>" +
                 "        </div>" +
                 "    </div>" +

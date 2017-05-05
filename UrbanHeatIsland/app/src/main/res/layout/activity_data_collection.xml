@@ -10,88 +10,92 @@
     tools:context="lasa.urbanheatisland.DataCollection">
 
     <EditText
+        android:id="@+id/Temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/Temperature"
-        android:layout_marginTop="65dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
     <Spinner
+        android:id="@+id/shadeType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/shadeType"
+        android:layout_above="@+id/submit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
         android:entries="@array/Shade_Source"
         android:spinnerMode="dropdown"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/groundType" />
+        android:visibility="invisible" />
 
     <Spinner
+        android:id="@+id/groundType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/groundType"
+        android:layout_alignParentStart="false"
         android:layout_below="@+id/Temperature"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:spinnerMode="dropdown"
         android:entries="@array/Ground_Conditions"
-        android:layout_alignParentStart="false" />
+        android:spinnerMode="dropdown" />
 
     <Button
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="submit"
-        android:id="@+id/button"
-        android:onClick="submitClick"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="32dp"
+        android:onClick="submitClick"
+        android:text="submit" />
 
     <CheckBox
+        android:id="@+id/shade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shade"
-        android:id="@+id/shade"
-        android:layout_marginTop="60dp"
+        android:layout_alignStart="@+id/temp"
+        android:layout_alignTop="@+id/shadeyn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
         android:checked="false"
-        android:layout_below="@+id/shadeType"
-        android:layout_centerHorizontal="true" />
+        android:text="Shade" />
 
     <TextView
+        android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Temperature"
-        android:id="@+id/temp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="39dp"
+        android:text="Temperature" />
 
     <TextView
+        android:id="@+id/grnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ground Conditions"
-        android:id="@+id/grnd"
         android:layout_alignBottom="@+id/groundType"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp" />
+        android:layout_marginBottom="23dp"
+        android:text="Ground Conditions" />
 
     <TextView
+        android:id="@+id/shadeSrc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shade source"
-        android:id="@+id/textView"
         android:layout_above="@+id/shadeType"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignEnd="@+id/temp"
+        android:text="Shade source"
+        android:visibility="invisible" />
 
     <TextView
+        android:id="@+id/shadeyn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Was there shade?"
-        android:id="@+id/shadeyn"
-        android:layout_marginBottom="25dp"
-        android:layout_alignBottom="@+id/shade"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/grnd"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Was there shade?" />
 
 </RelativeLayout>
