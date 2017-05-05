@@ -92,8 +92,7 @@ public class MyServlet extends HttpServlet {
         if(id == null){
             resp.getWriter().println("Refresh the page to see the data!");
         }else {
-            resp.getWriter().println(id);
-
+            resp.getWriter().println(makeNice());
         }
     }
 
@@ -139,7 +138,56 @@ public class MyServlet extends HttpServlet {
         if(id == null){
             resp.getWriter().println("Refresh the page to see the data!");
         }else {
-            resp.getWriter().println(id);
+            resp.getWriter().println(makeNice());
         }
+    }
+
+    public String makeNice(){
+        String website = "<div class=\"row\">" +
+                "<div class=\"col-md-2\"></div>" +
+                "<div class=\"col-md-8\">" +
+                "<table class=\"table table-hover\"><tr>" +
+                "<th>Data Entry Number</th>" +
+                "<th>Shade Source</th>" +
+                "<th>Shaded Region?</th>" +
+                "<th>Ground Conditions</th>" +
+                "<th>Temperature</th></tr>";
+        for (int i= 0; i<id.size();i++){
+            website = website + "<tr>";
+            String temp = id.get(i);
+            for(int j=0; j<5; j++) {
+                if(temp.indexOf(',') != -1) {
+                        Log.info(String.valueOf(temp.indexOf(',')));
+                        website = website + "<td>" + temp.substring(1, temp.indexOf(',')) + "</td>";
+                        Log.info(website);
+                        temp = temp.substring(temp.indexOf(',') + 1);
+                }
+                else{
+                    website = website + "<td>" + temp.substring(0, temp.length()-1) + "</td>";
+                }
+            }
+            website = website + "</tr>";
+        }
+        website = website + "</table></div><div class=\"col-md-2\"></div>";
+        website = "<html><head>" +
+                "    <title>Urban Heat Island Data</title>" +
+                "    <link rel=\"stylesheet\" href=\"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css\">" +
+                "    <link rel=\"stylesheet\" href=\"//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css\">" +
+                "</head>" +
+                "<body role=\"document\" style=\"padding-top: 70px;\">" +
+                "<div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
+                "    <div class=\"container\">" +
+                "        <div class=\"navbar-header\">" +
+                "            <a class=\"navbar-brand\" href=\"#\">Hello, App Engine!</a>" +
+                "        </div>" +
+                "        <div class=\"navbar-collapse collapse\">" +
+                "            <ul class=\"nav navbar-nav\">" +
+                "                <li><a href=\"/data\">Google App Engine documentation</a></li>" +
+                "                <li><a href=\"https://console.developers.google.com\">Google Developers Console</a></li>" +
+                "            </ul>" +
+                "        </div>" +
+                "    </div>" +
+                "</div>" + website + "</html>";
+        return website;
     }
 }
